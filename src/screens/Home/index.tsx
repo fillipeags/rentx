@@ -11,11 +11,12 @@ import {
   Container,
   Header,
   TotalCars,
-  HeaderContent
+  HeaderContent,
+  CarList
 } from './styles'
 
 export function Home() {
-  const carOne = {
+  const carData = {
     brand: 'Audi',
     name: 'RS 5 Coupé',
     rent: {
@@ -23,16 +24,6 @@ export function Home() {
       price: 120,
     },
     thumbnail: 'https://freepngimg.com/thumb/audi/35227-5-audi-rs5-red.png'
-  }
-
-  const carTwo = {
-    brand: 'Porsche',
-    name: 'Panamera',
-    rent: {
-      period: 'AO DIA',
-      price: 340,
-    },
-    thumbnail: 'https://www.pngkit.com/png/full/237-2375888_porsche-panamera-s.png'
   }
 
   return (
@@ -54,8 +45,11 @@ export function Home() {
         </HeaderContent>
       </Header>
 
-      <Car data={carOne} />
-      <Car data={carTwo} />
+      <CarList
+        data={[1, 2, 3, 4, 5, 6, 7]}
+        keyExtractor={item => String(item)}
+        renderItem={({ item }) => <Car data={carData} />}
+      />
     </Container>
   )
 }
