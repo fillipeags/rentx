@@ -1,7 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { StatusBar } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
@@ -9,6 +8,10 @@ import { RFValue } from 'react-native-responsive-fontsize'
 import Logo from '../../assets/logo.svg';
 
 import { Car } from '../../components/Car'
+import { Load } from '../../components/Load'
+
+import api from '../../services/api'
+import { CarDTO } from '../../dtos/CarDTO'
 
 import {
   Container,
@@ -31,6 +34,8 @@ type HomeScreenNavigationProp = StackNavigationProp<
 
 export function Home() {
   const { navigate } = useNavigation<HomeScreenNavigationProp>()
+  const [cars, setCars] = useState<CarDTO[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const carData = {
     brand: 'Audi',
@@ -45,6 +50,20 @@ export function Home() {
   function handleCarDetails() {
     navigate('CarDetails')
   }
+
+  useEffect(() => {
+    async function fetchCars() {
+      try {
+        await api.get('/cars').then((response) => setCars(response.data))
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchCars();
+  }, [])
 
   return (
     <Container>
@@ -65,11 +84,14 @@ export function Home() {
         </HeaderContent>
       </Header>
 
-      <CarList
-        data={[1, 2, 3, 4, 5, 6, 7]}
-        keyExtractor={item => String(item)}
-        renderItem={({ item }) => <Car data={carData} onPress={handleCarDetails} />}
-      />
+      {loading ? <Load /> :
+
+        <CarList
+          data={cars}
+          keyExtractor={item => item.id}
+          renderItem={({ item }) => <Car data={item} onPress={handleCarDetails} />}
+        />
+      }
     </Container>
   )
 }
