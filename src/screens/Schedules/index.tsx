@@ -37,10 +37,15 @@ type HomeScreenNavigationProp = StackNavigationProp<
 export function Schedules() {
   const theme = useTheme()
 
+  const navigation = useNavigation();
   const { navigate } = useNavigation<HomeScreenNavigationProp>()
 
   function handleConfirmRental() {
     navigate('ScheduleDetails')
+  }
+
+  function handleBackButton() {
+    navigation.goBack();
   }
 
   return (
@@ -51,7 +56,7 @@ export function Schedules() {
           translucent
           backgroundColor="transparent"
         />
-        <BackButton onPress={() => { }} color={theme.colors.shape} />
+        <BackButton onPress={handleBackButton} color={theme.colors.shape} />
 
         <Title>
           Escolha uma {'\n'}

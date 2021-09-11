@@ -57,16 +57,21 @@ type HomeScreenNavigationProp = StackNavigationProp<
 export function ScheduleDetails() {
   const theme = useTheme()
 
+  const navigation = useNavigation();
   const { navigate } = useNavigation<HomeScreenNavigationProp>()
 
   function handleScheduleConfirmation() {
     navigate('ScheduleCompleted')
   }
 
+  function handleBackButton() {
+    navigation.goBack();
+  }
+
   return (
     <Container>
       <Header>
-        <BackButton onPress={() => { }} />
+        <BackButton onPress={handleBackButton} />
       </Header>
 
       <CarImages>

@@ -34,6 +34,7 @@ import {
 type RootStackParamList = {
   CarDetails: undefined;
   Schedules: undefined;
+  goBack: () => void;
 };
 
 type HomeScreenNavigationProp = StackNavigationProp<
@@ -42,16 +43,23 @@ type HomeScreenNavigationProp = StackNavigationProp<
 >;
 
 
+
 export function CarDetails() {
+  const navigation = useNavigation();
   const { navigate } = useNavigation<HomeScreenNavigationProp>()
 
   function handleSchedules() {
     navigate('Schedules')
   }
+
+  function handleBackButton() {
+    navigation.goBack();
+  }
+
   return (
     <Container>
       <Header>
-        <BackButton onPress={() => { }} />
+        <BackButton onPress={handleBackButton} />
       </Header>
 
       <CarImages>
