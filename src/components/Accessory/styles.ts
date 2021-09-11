@@ -9,7 +9,7 @@ export const Container = styled.View`
 
   background-color: ${({ theme }) => theme.colors.background_primary};
 
-  padding: 16px;
+  padding: 14px;
   margin-bottom: 8px;
 `;
 

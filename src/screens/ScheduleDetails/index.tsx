@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 import { BackButton } from '../../components/BackButton';
 import { ImageSlider } from '../../components/ImageSlider';
@@ -42,9 +44,24 @@ import {
   RentalPriceTotal,
 } from './styles';
 
+type RootStackParamList = {
+  SchedulesDetails: undefined;
+  ScheduleCompleted: undefined;
+};
+
+type HomeScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'ScheduleCompleted'
+>;
 
 export function ScheduleDetails() {
   const theme = useTheme()
+
+  const { navigate } = useNavigation<HomeScreenNavigationProp>()
+
+  function handleScheduleConfirmation() {
+    navigate('ScheduleCompleted')
+  }
 
   return (
     <Container>
@@ -118,7 +135,7 @@ export function ScheduleDetails() {
       </Content>
 
       <Footer>
-        <Button title="Confirmar" />
+        <Button title="Alugar agora" color={theme.colors.success} onPress={handleScheduleConfirmation} />
       </Footer>
 
     </Container>

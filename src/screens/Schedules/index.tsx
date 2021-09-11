@@ -1,4 +1,7 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+
 import { BackButton } from '../../components/BackButton';
 import { useTheme } from 'styled-components'
 
@@ -20,8 +23,25 @@ import { StatusBar } from 'react-native';
 import { Button } from '../../components/Button';
 import { Calendar } from '../../components/Calendar';
 
+type RootStackParamList = {
+  Schedules: undefined;
+  ScheduleDetails: undefined;
+};
+
+type HomeScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'ScheduleDetails'
+>;
+
+
 export function Schedules() {
   const theme = useTheme()
+
+  const { navigate } = useNavigation<HomeScreenNavigationProp>()
+
+  function handleConfirmRental() {
+    navigate('ScheduleDetails')
+  }
 
   return (
     <Container>
@@ -62,7 +82,7 @@ export function Schedules() {
       </Content>
 
       <Footer>
-        <Button title="Confirmar" />
+        <Button title="Confirmar" onPress={handleConfirmRental} />
       </Footer>
     </Container>
   );
