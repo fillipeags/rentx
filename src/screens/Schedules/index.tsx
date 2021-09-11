@@ -23,25 +23,13 @@ import { StatusBar } from 'react-native';
 import { Button } from '../../components/Button';
 import { Calendar } from '../../components/Calendar';
 
-type RootStackParamList = {
-  Schedules: undefined;
-  ScheduleDetails: undefined;
-};
-
-type HomeScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  'ScheduleDetails'
->;
-
-
 export function Schedules() {
   const theme = useTheme()
 
   const navigation = useNavigation();
-  const { navigate } = useNavigation<HomeScreenNavigationProp>()
 
   function handleConfirmRental() {
-    navigate('ScheduleDetails')
+    navigation.navigate('ScheduleDetails')
   }
 
   function handleBackButton() {

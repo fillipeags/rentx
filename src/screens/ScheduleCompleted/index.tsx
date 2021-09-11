@@ -17,23 +17,13 @@ import LogoSvg from '../../assets/logo_background_gray.svg';
 import DoneSvg from '../../assets/done.svg'
 import { ConfirmButton } from '../../components/ConfirmButton';
 
-type RootStackParamList = {
-  ScheduleCompleted: undefined;
-  Home: undefined;
-};
-
-type HomeScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  'Home'
->;
-
 export function ScheduleCompleted() {
   const { width } = useWindowDimensions();
 
-  const { navigate } = useNavigation<HomeScreenNavigationProp>()
+  const navigation = useNavigation()
 
   function handleHome() {
-    navigate('Home')
+    navigation.navigate('Home')
   }
 
   return (

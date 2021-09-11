@@ -44,24 +44,15 @@ import {
   RentalPriceTotal,
 } from './styles';
 
-type RootStackParamList = {
-  SchedulesDetails: undefined;
-  ScheduleCompleted: undefined;
-};
 
-type HomeScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  'ScheduleCompleted'
->;
 
 export function ScheduleDetails() {
   const theme = useTheme()
 
   const navigation = useNavigation();
-  const { navigate } = useNavigation<HomeScreenNavigationProp>()
 
   function handleScheduleConfirmation() {
-    navigate('ScheduleCompleted')
+    navigation.navigate('ScheduleCompleted')
   }
 
   function handleBackButton() {
