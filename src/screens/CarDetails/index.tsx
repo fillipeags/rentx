@@ -35,11 +35,10 @@ interface Params {
 export function CarDetails() {
   const navigation = useNavigation();
   const route = useRoute();
-
   const { car } = route.params as Params;
 
   function handleSchedules() {
-    navigation.navigate('Schedules')
+    navigation.navigate('Schedules', { car })
   }
 
   function handleBackButton() {
