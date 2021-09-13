@@ -41,6 +41,8 @@ import {
   RentalPriceTotal,
 } from './styles';
 import { getPlatformDate } from '../../utils/getPlatformDate';
+import api from '../../services/api';
+import { Alert } from 'react-native';
 
 interface Params {
   car: CarDTO;
@@ -64,8 +66,19 @@ export function ScheduleDetails() {
 
   const navigation = useNavigation();
 
-  function handleScheduleConfirmation() {
-    navigation.navigate('ScheduleCompleted')
+  async function handleScheduleConfirmation() {
+    const schedulesByCar = await api.get(`/schedules_bycars/${car.id}`);
+
+    const unavailable_dates = [
+      ...schedulesByCar.data.unavailable_dates,
+      ...dates,
+    ];
+
+    api.put(`/schedules_bycars/${car.id}`, {
+      id: car.id,
+      unavailable_dates
+    }).then(() => navigation.navigate('ScheduleCompleted'))
+      .catch(() => Alert.alert('Não foi possivel confirmar o agendamento'));
   }
 
   function handleBackButton() {
@@ -154,7 +167,11 @@ export function ScheduleDetails() {
       </Content>
 
       <Footer>
-        <Button title="Alugar agora" color={theme.colors.success} onPress={handleScheduleConfirmation} />
+        <Button
+          title="Alugar agora"
+          color={theme.colors.success}
+          onPress={handleScheduleConfirmation}
+        />
       </Footer>
 
     </Container>
