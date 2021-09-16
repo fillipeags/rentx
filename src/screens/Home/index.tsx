@@ -17,7 +17,7 @@ const ButtonAnimated = Animated.createAnimatedComponent(RectButton);
 import { useTheme } from 'styled-components'
 import { Ionicons } from '@expo/vector-icons'
 
-import { StatusBar, StyleSheet } from 'react-native'
+import { StatusBar, StyleSheet, BackHandler } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
 
 import Logo from '../../assets/logo.svg';
@@ -91,9 +91,16 @@ export function Home() {
         setLoading(false)
       }
     }
-
     fetchCars();
+  }, []);
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', () => {
+      return true;
+    })
   }, [])
+
+
 
   return (
     <Container>
@@ -108,9 +115,12 @@ export function Home() {
             width={RFValue(108)}
             height={RFValue(12)}
           />
-          <TotalCars>
-            Total de {cars.length} carros
-          </TotalCars>
+
+          {!loading &&
+            <TotalCars>
+              Total de {cars.length} carros
+            </TotalCars>
+          }
         </HeaderContent>
       </Header>
 
