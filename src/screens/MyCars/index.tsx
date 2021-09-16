@@ -10,7 +10,7 @@ import { AntDesign } from '@expo/vector-icons'
 
 import { useNavigation } from '@react-navigation/native';
 
-import { Load } from '../../components/Load'
+import { LoadAnimation } from '../../components/LoadAnimation'
 
 import {
   Container,
@@ -80,7 +80,7 @@ export function MyCars() {
         <SubTitle>Conforto, segurança e praticidade</SubTitle>
       </Header>
 
-      {loading ? <Load /> :
+      {loading ? <LoadAnimation /> :
 
         <Content>
           <Appointments>
