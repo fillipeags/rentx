@@ -16,6 +16,7 @@ export function LoadAnimation() {
         style={{ height: 200 }}
         resizeMode="contain"
         autoPlay
+        loop
       />
     </Container>
   );
