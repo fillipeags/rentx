@@ -4,6 +4,7 @@ import { StatusBar } from 'react-native'
 import theme from '../../styles/theme';
 
 import { Input } from '../../components/Input'
+import { PasswordInput } from '../../components/PasswordInput'
 import { Button } from '../../components/Button'
 
 import {
@@ -36,6 +37,12 @@ export function SignIn() {
           autoCorrect={false}
           autoCapitalize="none"
         />
+
+        <PasswordInput
+          iconName="lock"
+          placeholder="Senha"
+        />
+
       </Form>
 
       <Footer>
