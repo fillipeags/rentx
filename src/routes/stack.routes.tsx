@@ -12,6 +12,7 @@ import { ScheduleCompleted } from '../screens/ScheduleCompleted'
 import { MyCars } from '../screens/MyCars';
 import { Splash } from '../screens/Splash';
 import { SignIn } from '../screens/SignIn';
+import { SignUpFirstStep } from '../screens/SignUp/SignUpFirstStep';
 
 const Stack = createStackNavigator()
 
@@ -21,6 +22,11 @@ export function StackRoutes() {
       <Stack.Screen
         name="SignIn"
         component={SignIn}
+      />
+
+      <Stack.Screen
+        name="SignUpFirstStep"
+        component={SignUpFirstStep}
       />
 
       <Stack.Screen
