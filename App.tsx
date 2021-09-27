@@ -1,6 +1,8 @@
 import React from 'react';
 import AppLoading from 'expo-app-loading';
 import { ThemeProvider } from 'styled-components'
+import { AppProvider } from './src/hooks'
+
 import {
   Archivo_400Regular,
   Archivo_500Medium,
@@ -16,7 +18,6 @@ import {
 
 import theme from './src/styles/theme';
 
-import { ScheduleCompleted } from './src/screens/ScheduleCompleted';
 import { Routes } from "./src/routes";
 
 export default function App() {
@@ -34,7 +35,9 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Routes />
+      <AppProvider>
+        <Routes />
+      </AppProvider>
     </ThemeProvider>
   );
 }
