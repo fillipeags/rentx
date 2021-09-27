@@ -12,6 +12,7 @@ import { BackButton } from '../../../components/BackButton';
 import { Bullet } from '../../../components/Bullet';
 import { PasswordInput } from '../../../components/PasswordInput';
 import { Button } from '../../../components/Button';
+import { Confirmation } from '../../Confirmation';
 
 import {
   Container,
@@ -55,6 +56,11 @@ export function SignUpSecondtStep() {
     }
 
     // Enviar para API e cadastrar
+    navigation.navigate('Confirmation', {
+      nextScreenRoute: 'SignIn',
+      title: 'Conta Criada!',
+      message: `Agora é so fazer login\n e aproveitar.`
+    });
   }
 
   return (

@@ -8,7 +8,7 @@ import { Home } from '../screens/Home'
 import { CarDetails } from '../screens/CarDetails'
 import { Schedules } from '../screens/Schedules'
 import { ScheduleDetails } from '../screens/ScheduleDetails'
-import { ScheduleCompleted } from '../screens/ScheduleCompleted'
+import { Confirmation } from '../screens/Confirmation'
 import { MyCars } from '../screens/MyCars';
 import { Splash } from '../screens/Splash';
 import { SignIn } from '../screens/SignIn';
@@ -59,8 +59,8 @@ export function StackRoutes() {
       />
 
       <Stack.Screen
-        name="ScheduleCompleted"
-        component={ScheduleCompleted}
+        name="Confirmation"
+        component={Confirmation}
       />
 
       <Stack.Screen
