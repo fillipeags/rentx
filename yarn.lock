@@ -340,7 +340,16 @@
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/plugin-syntax-class-static-block" "^7.14.5"
 
-"@babel/plugin-proposal-decorators@^7.14.2", "@babel/plugin-proposal-decorators@^7.6.0":
+"@babel/plugin-proposal-decorators@^7.15.4":
+  version "7.15.4"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-decorators/-/plugin-proposal-decorators-7.15.4.tgz#fb55442bc83ab4d45dda76b91949706bf22881d2"
+  integrity sha512-WNER+YLs7avvRukEddhu5PSfSaMMimX2xBFgLQS7Bw16yrUxJGWidO9nQp+yLy9MVybg5Ba3BlhAw+BkdhpDmg==
+  dependencies:
+    "@babel/helper-create-class-features-plugin" "^7.15.4"
+    "@babel/helper-plugin-utils" "^7.14.5"
+    "@babel/plugin-syntax-decorators" "^7.14.5"
+
+"@babel/plugin-proposal-decorators@^7.6.0":
   version "7.15.4"
   resolved "https://registry.npmjs.org/@babel/plugin-proposal-decorators/-/plugin-proposal-decorators-7.15.4.tgz"
   integrity sha512-WNER+YLs7avvRukEddhu5PSfSaMMimX2xBFgLQS7Bw16yrUxJGWidO9nQp+yLy9MVybg5Ba3BlhAw+BkdhpDmg==
@@ -2013,7 +2022,7 @@
   resolved "https://registry.yarnpkg.com/@nozbe/sqlite/-/sqlite-3.31.1.tgz#ffd394ad7c188c6b73f89fd6e1ccb849a1b96dba"
   integrity sha512-z5+GdcHZl9OQ1g0pnygORAnwCYUlYw/gQxdW/8rS0HxD2Gnn/k3DBQOvqQIH4Z3Z3KWVMbGUYhcH1v4SqTAdwg==
 
-"@nozbe/watermelondb@^0.22.0":
+"@nozbe/watermelondb@0.22.0":
   version "0.22.0"
   resolved "https://registry.yarnpkg.com/@nozbe/watermelondb/-/watermelondb-0.22.0.tgz#a808300015f7fb62b1925b25da5aeb59b5440acd"
   integrity sha512-c6HNSbd0fmg3wNOeOpdPGR4m3LoPhpNbA/5Nt5wbVtadiRHZTTHCRoaVA+35eUURJH9B1gnLIKYTu3p/9+Qxvg==
@@ -6309,20 +6318,19 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1, loose-envify@^1.4
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
-lottie-ios@^3.1.8:
+lottie-ios@3.2.3:
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/lottie-ios/-/lottie-ios-3.2.3.tgz#d5a029ccce611603d178ea7ba725c1446f2310b4"
   integrity sha512-mubYMN6+1HXa8z3EJKBvNBkl4UoVM4McjESeB2PgvRMSngmJtC5yUMRdhbbrIAn5Liu3hFGao/14s5hQIgtkRQ==
 
-lottie-react-native@3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/lottie-react-native/-/lottie-react-native-3.5.0.tgz#749fed964bdc9fabfae24ef81696f90f4d758f59"
-  integrity sha512-yKYj58xynDAG/BqJUhg9LTATBqwD4ATGXJKL2Ho6g4BTmPexOjDBNnPSeRBwjlpBxQ1nP4Qw//0zbuFsTFD1TA==
+lottie-react-native@^4.1.3:
+  version "4.1.3"
+  resolved "https://registry.yarnpkg.com/lottie-react-native/-/lottie-react-native-4.1.3.tgz#813579b09f5346d6ceae21fd954f44f8392f8943"
+  integrity sha512-RgQrn1VYRXMV3YTZE9DgZy/UqNsMmZvzXBU4eEUWDOTY9cemOoWmCg2BHrL7nNtDJqtsu1Mi/6e8hp0yN2mcBA==
   dependencies:
     invariant "^2.2.2"
-    lottie-ios "^3.1.8"
     prop-types "^15.5.10"
-    react-native-safe-modules "^1.0.0"
+    react-native-safe-modules "^1.0.3"
 
 lru-cache@^4.0.1:
   version "4.1.5"
@@ -7614,7 +7622,7 @@ react-native-safe-area-context@3.2.0:
   resolved "https://registry.npmjs.org/react-native-safe-area-context/-/react-native-safe-area-context-3.2.0.tgz"
   integrity sha512-k2Nty4PwSnrg9HwrYeeE+EYqViYJoOFwEy9LxL5RIRfoqxAq/uQXNGwpUg2/u4gnKpBbEPa9eRh15KKMe/VHkA==
 
-react-native-safe-modules@^1.0.0:
+react-native-safe-modules@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/react-native-safe-modules/-/react-native-safe-modules-1.0.3.tgz#f5f29bb9d09d17581193843d4173ad3054f74890"
   integrity sha512-DUxti4Z+AgJ/ZsO5U7p3uSCUBko8JT8GvFlCeOXk9bMd+4qjpoDvMYpfbixXKgL88M+HwmU/KI1YFN6gsQZyBA==
