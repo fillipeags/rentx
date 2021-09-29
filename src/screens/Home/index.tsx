@@ -1,12 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 
-import { RectButton } from 'react-native-gesture-handler'
-
-import Animated, {
-  useSharedValue,
-} from 'react-native-reanimated'
-
 import { StatusBar } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
 
@@ -38,16 +32,28 @@ export function Home() {
   }
 
   useEffect(() => {
+    let isMounted = true;
+
     async function fetchCars() {
       try {
-        await api.get('/cars').then((response) => setCars(response.data))
+        const response = await api.get('/cars');
+        if (isMounted) {
+          setCars(response.data)
+        }
       } catch (error) {
         console.log(error);
       } finally {
-        setLoading(false)
+        if (isMounted) {
+          setLoading(false)
+        }
       }
     }
+
     fetchCars();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
